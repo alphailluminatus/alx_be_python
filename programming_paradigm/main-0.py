@@ -2,10 +2,10 @@ from bank_account import BankAccount
 
 def main():
     account = BankAccount()
-    account.deposit(67)            # Prints once from inside the method
-    account.withdraw(50)           # Also prints from method
-    account.withdraw(100)          # Also prints from method
-    account.display_balance()      # Prints balance
+    account.deposit(67)        # Will print: Deposited: $67.0
+    account.withdraw(50)       # Will print: Withdrew: $50.0
+    account.withdraw(100)      # Will print: Insufficient funds.
+    account.display_balance()  # Will print: Current Balance: $17.00
 
 if __name__ == "__main__":
     main()
