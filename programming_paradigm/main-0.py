@@ -1,40 +1,41 @@
 from bank_account import BankAccount
 
 def main():
-    account = BankAccount(250)  # Starting with $250
-    account.deposit(67.0)
-    account.withdraw(50.0)
-    account.withdraw(100.0)
-    account.display_balance()
+    # Create a bank account with optional starting balance
+    account = BankAccount()
 
-if __name__ == "__main__":
-    main()
-import sys
-from bank_account import BankAccount
+    while True:
+        print("\n=== Bank Account Menu ===")
+        print("1. Deposit")
+        print("2. Withdraw")
+        print("3. Display Balance")
+        print("4. Exit")
+        choice = input("Enter your choice (1-4): ")
 
-def main():
-    account = BankAccount(100)  # Example starting balance
+        if choice == "1":
+            try:
+                amount = float(input("Enter amount to deposit: "))
+                account.deposit(amount)
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+        
+        elif choice == "2":
+            try:
+                amount = float(input("Enter amount to withdraw: "))
+                account.withdraw(amount)
+            except ValueError:
+                print("Invalid input. Please enter a number.")
 
-    if len(sys.argv) < 2:
-        print("Usage: python main-0.py <command>:<amount>")
-        print("Commands: deposit, withdraw, display")
-        sys.exit(1)
+        elif choice == "3":
+            account.display_balance()
 
-    command, *params = sys.argv[1].split(':')
-    amount = float(params[0]) if params else None
+        elif choice == "4":
+            print("Goodbye! Thank you for using the Bank Account App.")
+            break
 
-    if command == "deposit" and amount is not None:
-        account.deposit(amount)
-        print(f"Deposited: ${amount}")
-    elif command == "withdraw" and amount is not None:
-        if account.withdraw(amount):
-            print(f"Withdrew: ${amount}")
         else:
-            print("Insufficient funds.")
-    elif command == "display":
-        account.display_balance()
-    else:
-        print("Invalid command.")
+            print("Invalid choice. Please enter a number between 1 and 
+4.")
 
 if __name__ == "__main__":
     main()
