@@ -1,7 +1,7 @@
 from bank_account import BankAccount
 
 def main():
-    account = BankAccount()
+    account = BankAccount(250)  # Starting with $250
     account.deposit(67.0)
     account.withdraw(50.0)
     account.withdraw(100.0)
